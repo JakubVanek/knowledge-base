@@ -12,7 +12,8 @@ You need to do four things:
   ```xml
   <repository name="AppImage">
     <path project="OBS:AppImage" repository="toolchain.15.5"/>
-    <path project="openSUSE:Leap:15.5:Update" repository="standard"/>    <arch>x86_64</arch>
+    <path project="openSUSE:Leap:15.5:Update" repository="standard"/>
+    <arch>x86_64</arch>
   </repository>
   ```
 * Define a custom "project config" that forces an AppImage build
@@ -63,7 +64,7 @@ You need to do four things:
     <service name="appimage"/>
   </services>
   ```
-* Createa file `appimage.yml` within the package repo. This will depend on your package, but QtRvSim and DataPlotter use something like
+* Create a file `appimage.yml` within the package repo. This will depend on your package, but QtRvSim and DataPlotter use something like
   ```yml
   app: data-plotter
 
