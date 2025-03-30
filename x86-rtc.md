@@ -12,8 +12,8 @@ that save a UTC offset (= timezone information) along with the time.
 Why is then the issue still present in 2025?
 
 It seems that both Windows and Linux on x86 do *not* use the UEFI Time Services.
-Rather, both seem to directly access the RTC CMOS via the x86 port I/O or MMIO.
-This mechanism does not include timezone information, hence the issues with time jumps.
+The alternative mechanisms likely do not include timezone information,
+hence the issues with time jumps.
 
 ## What is happening where
 
@@ -38,6 +38,7 @@ According to my experiments with UEFI Shell, Windows on x86 seems to ignore the 
 * If I keep `RealTimeIsUniversal=1` and manually change the UEFI timezone in UEFI shell to `UTC+04:00`, Windows still shows correct time and also does not overwrite the timezone with a different one.
 
 This leads me to believe that Windows also directly accesses the RTC, bypassing the UEFI Time Services.
+I don't know if it uses I/O ports or some different mechanism.
 
 This would make sense to me: if Linux was hitting crashes in some UEFI implementations,
 it likely means that the code in them was not tested much. If the vendors were testing
