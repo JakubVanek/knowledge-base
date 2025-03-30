@@ -1,5 +1,8 @@
 # Real time on IBM PC-compatible systems ("x86")
 
+Credits: This article was written by me, but the idea of it and a previous independently-written version of it
+was created by a friend over at [https://actually.fyi/](https://actually.fyi/).
+
 Users switching between Windows and Linux sometimes
 experience unexpected time jumps when rebooting.
 This is commonly said to be caused by Windows saving local time to the RTC
