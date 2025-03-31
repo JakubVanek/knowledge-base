@@ -13,8 +13,9 @@ only it knows how to decrypt and use. This saves space inside the TPM and still
 (hopefully?) provides good security.
 
 The integration itself happens via a PKCS11 module. See the following articles for setup steps:
-* https://incenp.org/notes/2020/tpm-based-ssh-key.html
 * https://www.ledger.com/blog/ssh-with-tpm
+* https://wiki.gentoo.org/wiki/Trusted_Platform_Module/SSH
+* https://incenp.org/notes/2020/tpm-based-ssh-key.html
 
 The result should be that you can connect to a server using just using the PKCS11 module.
 You can query the TPM-backed public key using `ssh-keygen -D /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1`.
@@ -76,3 +77,12 @@ Host *
 
 ## FIDO2 SSH keys
 
+Recent SSH versions allow FIDO2 HW keys to be used directly. The idea
+is similar to the TPM idea.
+
+I used the guide at https://feldspaten.org/2024/02/03/ssh-authentication-via-Yubikeys/ .
+This way, you get something like an SSH keypair that requires the FIDO2
+key to be present to be useful.
+
+I am not using this as my primary means of accessing systems,
+therefore I don't need to speed up logins.
